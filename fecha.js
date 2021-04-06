@@ -26,15 +26,15 @@ class Fecha
     {
         this.mes = nuevoMes
     }
-    describeFecha()
+    tiStringCorto()
     {
         console.log ("El día: "+this.dia+"-"+this.mes+"-"+this.anyo)
     }
 }   
 
 let fecha = new Fecha (6,4,2021)
-fecha.describeFecha ()
+fecha.toStringCorto ()
 fecha.cambiaDia (36)
 fecha.cambiaMes (6)
-fecha.describeFecha ()
+fecha.toStringCorto ()
 
