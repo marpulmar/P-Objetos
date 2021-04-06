@@ -22,7 +22,6 @@ class Poligono
         console.log ("Lados: "+ this.lados + ", color: "+this.color)
     }
 }
-
 let triangulo = new Poligono(3)
 triangulo.describePoligono()
 triangulo.cambiaColor("azul")
