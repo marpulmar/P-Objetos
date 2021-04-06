@@ -6,26 +6,25 @@ class Fecha
     anyo
 
     //Constructor
-    constructor () 
+    constructor (dia,mes,anyo) 
     {
-    this.dia = 23
-    this.mes = 6
-    this.anyo = 2000
+    this.dia = dia
+    this.mes = mes
+    this.anyo = anyo
     }
 
     //Métodos 
     esvalida ()
     {
-        if (this.dia >=1 || this.dia<=31){}
+        if (this.dia >=1 || this.dia<=31 && (this.mes >=1 || this.mes <=12)) {}
     }
-
+    cambiaDia (nuevoDia) 
+    {
+        this.dia = nuevoDia
+    }
     cambiaMes (nuevoMes)
     {
         this.mes = nuevoMes
-    }
-    cambiaAnyo (nuevoAnyo)
-    {
-      this.anyo = nuevoAnyo  
     }
     describeFecha()
     {
@@ -33,6 +32,9 @@ class Fecha
     }
 }   
 
-let fecha = new Fecha (29)
+let fecha = new Fecha (6,4,2021)
 fecha.describeFecha ()
-fecha.cambiaMes (34)
+fecha.cambiaDia (36)
+fecha.cambiaMes (6)
+fecha.describeFecha ()
+
