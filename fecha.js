@@ -16,7 +16,14 @@ class Fecha
     //Métodos 
     esvalida ()
     {
-        if (this.dia >=1 || this.dia<=31 && (this.mes >=1 || this.mes <=12)) {}
+        if (this.dia >=1 && this.dia<=31 && (this.mes >=1 && this.mes <=12)) 
+        {
+            console.log ("La fecha es válida.")   
+        }
+        else 
+        {
+            console.log ("La fecha no es válda.")
+        }
     }
     cambiaDia (nuevoDia) 
     {
@@ -26,7 +33,7 @@ class Fecha
     {
         this.mes = nuevoMes
     }
-    tiStringCorto()
+    toStringCorto()
     {
         console.log ("El día: "+this.dia+"-"+this.mes+"-"+this.anyo)
     }
@@ -34,7 +41,9 @@ class Fecha
 
 let fecha = new Fecha (6,4,2021)
 fecha.toStringCorto ()
+fecha.esvalida()
 fecha.cambiaDia (36)
 fecha.cambiaMes (6)
 fecha.toStringCorto ()
+fecha.esvalida()
 
