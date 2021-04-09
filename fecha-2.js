@@ -47,7 +47,7 @@ class Fecha
         }
         texto += this.mes
         texto += "/"+this.anyo
-        console.log (texto)
+        return texto
     }
 
     anyoBisiesto () 
@@ -59,20 +59,48 @@ class Fecha
         }
         return bisiesto
     }
+
+    duracionMes () 
+    {
+        var treintayunodias = false
+        if ((this.mes <= 7 && this.mes % 2 != 0) || (this.mes >=8 && this.mes % 2 == 0))
+        {
+            treintayunodias = true
+        }
+        return treintayunodias
+    }
 }   
 
-let fecha = new Fecha (6,4,2021)
-fecha.toStringCorto ()
-console.log (fecha.anyoBisiesto())
+let fecha = new Fecha (6,2,2020)
+console.log (fecha.toStringCorto())
+
+//Ejercicio año bisiesto:
 if (fecha.anyoBisiesto ()) 
 {
- console.log ("El año es bsiesto.")
+ console.log ("El año "+ fecha.anyo + " es bisiesto.")
 }
 else 
 {
-    console.log ("El año no es bisiesto.")
+    console.log ("El año " + fecha.anyo +" no es bisiesto.")
 }
-fecha.cambiaAnyo (2020)
-fecha.toStringCorto ()
-console.log (fecha.anyoBisiesto ())
 
+//Ejercicio duración mes:
+if (fecha.duracionMes())
+{
+    console.log ("El mes " + fecha.mes + " tiene 31 días.")
+}
+else if (fecha.mes ==2) 
+{
+    if (fecha.anyoBisiesto) 
+    {
+        console.log ("El mes 2 tiene 29 días.")
+    }
+    else 
+     {
+        console.log ("El mes 2 tiene 28 días.")
+     }
+}
+else 
+{
+    console.log ("El mes " + fecha.mes + " tiene 30 días.")
+}
