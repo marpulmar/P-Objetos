@@ -14,7 +14,7 @@ class Fecha
     }
 
     //Métodos 
-    esvalida ()
+    esValida ()
     {
         if (this.dia >=1 && this.dia<=31 && (this.mes >=1 && this.mes <=12)) 
         {
@@ -41,9 +41,9 @@ class Fecha
 
 let fecha = new Fecha (6,4,2021)
 fecha.toStringCorto ()
-fecha.esvalida()
+fecha.esValida()
 fecha.cambiaDia (36)
 fecha.cambiaMes (6)
 fecha.toStringCorto ()
-fecha.esvalida()
+fecha.esValida()
 
