@@ -1,0 +1,108 @@
+class Fecha {
+    //Atributos 
+    dia
+    mes
+    anyo
+
+    //Constructor
+    constructor(dia, mes, anyo) {
+        this.dia = dia
+        this.mes = mes
+        this.anyo = anyo
+    }
+
+    //Métodos 
+    cambiaDia(nuevoDia) {
+        this.dia = nuevoDia
+    }
+
+    cambiaMes(nuevoMes) {
+        this.mes = nuevoMes
+    }
+
+    cambiaAnyo(nuevoAnyo) {
+        this.anyo = nuevoAnyo
+    }
+
+    toStringCorto() {
+        var texto
+        if (this.dia < 10) {
+            texto = "0" + this.dia + "/"
+        }
+        else {
+            texto = this.dia + "/"
+        }
+
+        if (this.mes < 10) {
+            texto += "0"
+        }
+        texto += this.mes
+        texto += "/" + this.anyo
+        return texto
+    }
+
+    anyoBisiesto() {
+        var bisiesto = false
+        if ((this.anyo % 400 == 0) || (this.anyo % 4 == 0 && this.anyo % 100 != 0)) {
+            bisiesto = true
+        }
+        return bisiesto
+    }
+
+    duracionMes() 
+    {
+        var duracion = "El mes tiene 31 días"
+        if (this.mes == 2) 
+        {
+            if (this.anyoBisiesto) 
+            {
+                duracion = "El mes tiene 29 días."
+            }
+            else
+            { 
+            
+                duracion = "El mes tiene 28 días."
+            }
+        }
+        else if ((this.mes <= 7 && this.mes % 2 == 0) || ((this.mes >= 8 && this.mes <=12) && this.mes % 2 != 0))
+        {
+            duracion = "El mes tiene 30 días."
+        }
+        else 
+        {
+            duracion = "Ese mes no existe."
+        }
+        return duracion
+    }
+
+    esValida() {
+        var valida
+        if (this.mes <= 12 && this.dia <= this.duracionMes)
+        {
+            valida = "La fecha es válida."
+        }
+        else 
+        {
+            valida = "La fecha no es válida."
+        }
+        return valida
+    }
+}
+
+let fecha = new Fecha(4,21,2021)
+console.log(fecha.toStringCorto())
+
+//Ejercicio año bisiesto:
+if (fecha.anyoBisiesto()) {
+    console.log("El año " + fecha.anyo + " es bisiesto.")
+}
+else {
+    console.log("El año " + fecha.anyo + " no es bisiesto.")
+}
+
+//Ejercicio duración mes:
+console.log (fecha.duracionMes())
+
+
+//Ejercicio fecha válida o no :
+console.log (fecha.esValida())

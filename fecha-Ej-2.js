@@ -51,65 +51,40 @@ class Fecha {
 
     duracionMes() 
     {
-        var duracion = 31
+        var duracion = "El mes tiene 31 días"
         if (this.mes == 2) 
         {
             if (this.anyoBisiesto) 
             {
-                duracion = 29
+                duracion = "El mes tiene 29 días."
             }
             else
             { 
             
-                duracion = 28
+                duracion = "El mes tiene 28 días."
             }
         }
-        else if ((this.mes <= 7 && this.mes % 2 == 0) || (this.mes >= 8 && this.mes % 2 != 0))
+        else if ((this.mes <= 7 && this.mes % 2 == 0) || ((this.mes >= 8 && this.mes <=12) && this.mes % 2 != 0))
         {
-            duracion = 30
+            duracion = "El mes tiene 30 días."
+        }
+        else 
+        {
+            duracion = "Ese mes no existe."
         }
         return duracion
     }
 
     esValida() {
         var valida
-        
+        if (this.mes <= 12 && this.dia <= this.duracionMes)
+        {
+            valida = "La fecha es válida."
+        }
+        else 
+        {
+            valida = "La fecha no es válida."
+        }
+        return valida
     }
-}
-
-let fecha = new Fecha(4, 4, 2021)
-console.log(fecha.toStringCorto())
-
-//Ejercicio año bisiesto:
-if (fecha.anyoBisiesto()) {
-    console.log("El año " + fecha.anyo + " es bisiesto.")
-}
-else {
-    console.log("El año " + fecha.anyo + " no es bisiesto.")
-}
-
-//Ejercicio duración mes:
-console.log ("El mes tiene "+fecha.duracionMes()+" días.")
-
-
-//Ejercicio fecha válida o no :
-if (fecha.esValida()) {
-    console.log("La fecha no es válida, el mes " + fecha.mes + " no tiene " + fecha.dia + " días.")
-}
-else if (fecha.mes == 2) {
-    if (fecha.anyoBisiesto() && fecha.dia <= 29) {
-        console.log("La fecha es válida.")
-    }
-    else if (fecha.anyoBisiesto() && fecha.dia > 29) {
-        console.log("La fecha no es válida")
-    }
-    else if (fecha.dia <= 28) {
-        console.log("La fecha es válida.")
-    }
-    else {
-        console.log("La fecha no es válida.")
-    }
-}
-else {
-    console.log("La fecha es válida")
 }
