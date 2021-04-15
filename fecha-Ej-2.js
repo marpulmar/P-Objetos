@@ -49,27 +49,21 @@ class Fecha {
         return bisiesto
     }
 
-    duracionMes() 
-    {
+    duracionMes() {
         var duracion = "El mes tiene 31 días"
-        if (this.mes == 2) 
-        {
-            if (this.anyoBisiesto) 
-            {
+        if (this.mes == 2) {
+            if (this.anyoBisiesto) {
                 duracion = "El mes tiene 29 días."
             }
-            else
-            { 
-            
+            else {
+
                 duracion = "El mes tiene 28 días."
             }
         }
-        else if ((this.mes <= 7 && this.mes % 2 == 0) || ((this.mes >= 8 && this.mes <=12) && this.mes % 2 != 0))
-        {
+        else if ((this.mes <= 7 && this.mes % 2 == 0) || ((this.mes >= 8 && this.mes <= 12) && this.mes % 2 != 0)) {
             duracion = "El mes tiene 30 días."
         }
-        else 
-        {
+        else {
             duracion = "Ese mes no existe."
         }
         return duracion
@@ -77,12 +71,10 @@ class Fecha {
 
     esValida() {
         var valida
-        if (this.mes <= 12 && this.dia <= this.duracionMes)
-        {
+        if (this.mes <= 12 && this.dia <= this.duracionMes) {
             valida = "La fecha es válida."
         }
-        else 
-        {
+        else {
             valida = "La fecha no es válida."
         }
         return valida

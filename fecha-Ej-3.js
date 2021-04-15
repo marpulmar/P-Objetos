@@ -69,32 +69,12 @@ class Fecha {
         return duracion
     }
 
-    esValida() {
-        var valida
-        if (this.mes <= 12 && this.dia <= this.duracionMes) {
-            valida = "La fecha es válida."
-        }
-        else {
-            valida = "La fecha no es válida."
+    esValida()
+    {
+        var valida = true
+        if ((this.mes > 12 || this.mes < 1) || (this.dia > this.duracionMes() || this.dia < 1)) {
+            valida = false
         }
         return valida
     }
 }
-
-let fecha = new Fecha(4, 21, 2021)
-console.log(fecha.toStringCorto())
-
-//Ejercicio año bisiesto:
-if (fecha.anyoBisiesto()) {
-    console.log("El año " + fecha.anyo + " es bisiesto.")
-}
-else {
-    console.log("El año " + fecha.anyo + " no es bisiesto.")
-}
-
-//Ejercicio duración mes:
-console.log(fecha.duracionMes())
-
-
-//Ejercicio fecha válida o no :
-console.log(fecha.esValida())
