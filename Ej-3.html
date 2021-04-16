@@ -11,17 +11,17 @@
 
 <body>
     <script>
-        var preguntardia = prompt("¿Qué día es hoy?")
-        var preguntarmes = prompt("¿En qué mes estamos?")
-        var preguntaranyo = prompt("¿En qué año estamos?")
-
+        var preguntardia = parseInt(prompt("¿Qué día es hoy?"))
+        var preguntarmes = parseInt(prompt("¿En qué mes estamos?"))
+        var preguntaranyo = parseInt(prompt("¿En qué año estamos?"))
         let fecha = new Fecha(preguntardia, preguntarmes, preguntaranyo)
-        if (fecha.esValida()) {
-            alert("Hoy estamos a " + fecha.toStringCorto())
+        while (fecha.esValida() == false) {
+            alert ("La fecha no es válida. Vuelva a intentarlo.")
+            preguntardia = parseInt(prompt("¿Qué día es hoy?"))
+            preguntarmes = parseInt(prompt("¿En qué mes estamos?"))
+            preguntaranyo = parseInt(prompt("¿En qué año estamos?"))
         }
-        else {
-            alert ("La fecha no es válida.")
-        }
+        alert("Hoy estamos a " + fecha.toStringCorto())
 
     </script>
 </body>

@@ -50,21 +50,21 @@ class Fecha {
     }
 
     duracionMes() {
-        var duracion = "El mes tiene 31 días"
+        var duracion = 31
         if (this.mes == 2) {
-            if (this.anyoBisiesto) {
-                duracion = "El mes tiene 29 días."
+            if (this.anyoBisiesto()) {
+                duracion = 29
             }
             else {
 
-                duracion = "El mes tiene 28 días."
+                duracion = 28
             }
         }
         else if ((this.mes <= 7 && this.mes % 2 == 0) || ((this.mes >= 8 && this.mes <= 12) && this.mes % 2 != 0)) {
-            duracion = "El mes tiene 30 días."
+            duracion = 30
         }
         else {
-            duracion = "Ese mes no existe."
+            duracion = false
         }
         return duracion
     }

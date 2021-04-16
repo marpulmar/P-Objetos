@@ -52,7 +52,7 @@ class Fecha {
     duracionMes() {
         var duracion = "El mes tiene 31 días"
         if (this.mes == 2) {
-            if (this.anyoBisiesto) {
+            if (this.anyoBisiesto()) {
                 duracion = "El mes tiene 29 días."
             }
             else {
@@ -71,7 +71,7 @@ class Fecha {
 
     esValida() {
         var valida
-        if (this.mes <= 12 && this.dia <= this.duracionMes) {
+        if (this.mes <= 12 && this.dia <= this.duracionMes()) {
             valida = "La fecha es válida."
         }
         else {
