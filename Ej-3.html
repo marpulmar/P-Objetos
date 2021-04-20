@@ -16,10 +16,15 @@
         var preguntaranyo = parseInt(prompt("¿En qué año estamos?"))
         let fecha = new Fecha(preguntardia, preguntarmes, preguntaranyo)
         while (fecha.esValida() == false) {
-            alert ("La fecha no es válida. Vuelva a intentarlo.")
+            alert("La fecha no es válida. Vuelva a intentarlo.")
             preguntardia = parseInt(prompt("¿Qué día es hoy?"))
             preguntarmes = parseInt(prompt("¿En qué mes estamos?"))
             preguntaranyo = parseInt(prompt("¿En qué año estamos?"))
+
+            fecha.dia = preguntardia
+            fecha.mes = preguntarmes
+            fecha.anyo = preguntaranyo
+            
         }
         alert("Hoy estamos a " + fecha.toStringCorto())
 
