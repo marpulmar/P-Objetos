@@ -1,4 +1,4 @@
-class Vehículo {
+class Vehiculo {
     marca
     modelo
 
@@ -7,34 +7,42 @@ class Vehículo {
         this.marca = marca
         this.modelo = modelo
     }
+    describir() {
+        console.log("Vehículo: " + this.marca + " " + this.modelo)
+    }
 }
 
-class Coche extends Vehículo {
+class Coche extends Vehiculo {
     numPuertas
 
     constructor(numPuertas, marca, modelo) {
         super(marca, modelo)
         this.numPuertas = numPuertas
     }
+    describir() {
+        console.log("Coche: " + this.marca + " " + this.modelo + ", " + this.numPuertas + " puertas.")
+    }
 }
 
-class Moto extends Vehículo {
+class Moto extends Vehiculo {
     cilindrada
 
     constructor(marca, modelo, cilindrada) {
         super(marca, modelo)
         this.cilindrada = cilindrada
     }
+    describir() {
+        console.log("Moto: " + this.marca + " " + this.modelo + ", " + this.cilindrada + " cilindros.")
+    }
 }
 
 
 //Programa:
-let moto = new Moto("BMW", "HOLA", 500)
-console.log("La marca de la moto es " + moto.marca)
-console.log("El modelo de la moto es " + moto.modelo)
-console.log("La cilindrada de la moto es " + moto.cilindrada)
+let vehiculo = new Vehiculo("Ford", "Focus")
+vehiculo.describir()
 
 let coche = new Coche(4, "Fiat", "Panda")
-console.log("El númro de puertas del coche son " + coche.numPuertas)
-console.log("La marca del choche es " + coche.marca)
-console.log("El modelo del coche es " + coche.modelo)
+coche.describir()
+
+let moto = new Moto("Yamaha", "CBR", 500)
+moto.describir()
